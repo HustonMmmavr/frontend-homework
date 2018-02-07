@@ -6,6 +6,20 @@ QUnit.module('Тестируем функцию chess', function () {
 		assert.strictEqual(chess('1'), null);
 	});
 
+	QUnit.test('Тест на невалидное n', function (assert) {
+		assert.strictEqual(chess(null), null);
+	});
+
+	QUnit.test('Шахматная доска 4x4', function(assert) {
+		const expected =
+		'* * \n' +
+		' * *\n' +
+		'* * \n' +
+		' * *\n' ;
+	assert.strictEqual(chess(4), expected);
+	assert.strictEqual(chess('4'), expected);
+	});
+
 	QUnit.test('Шахматная доска 2 на 2', function (assert) {
 		const expected =
 			'* \n' +
