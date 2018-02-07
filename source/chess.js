@@ -5,11 +5,8 @@ function chess(n) {
         return null;
     }
 
-    let i = 1;
-    console.log(n);
-    let chessRow = "";//String.new();
+    let chessRow = "";
     let inverseRow = "";
-    let cnt = 0;
     for (let i = 0; i < n; i++) {
         if ((i % 2) == 0) {
             chessRow += '*';
@@ -20,7 +17,6 @@ function chess(n) {
         }
     }
 
-    // let reverseRow = chessRow.split("").reverse().join() + '\n';
     chessRow += '\n';
     inverseRow += '\n';
     let chessBoard = "";
