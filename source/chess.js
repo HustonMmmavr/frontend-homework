@@ -5,27 +5,16 @@ function chess(n) {
         return null;
     }
 
-    let chessRow = "";
-    let inverseRow = "";
-    for (let i = 0; i < n; i++) {
-        if ((i % 2) == 0) {
-            chessRow += '*';
-            inverseRow += ' ';
-        } else {
-            chessRow += ' ';
-            inverseRow += '*';
-        }
-    }
+    let halfChessBoxSize = Math.floor(n/2);
+    let sharedChessRow = '* '.repeat(halfChessBoxSize + 1);
 
-    chessRow += '\n';
-    inverseRow += '\n';
-    let chessBoard = "";
-    for (let i = 0; i < n; i++) {
-        if ((i % 2) == 0) {
-            chessBoard += chessRow;
-        } else {
-            chessBoard += inverseRow;
-        }
-    } 
+    let chessRow = sharedChessRow.substr(0,n) + '\n';
+    let inverseChessRow = sharedChessRow.substr(1,n) + '\n';
+
+    let chessBoard = (chessRow + inverseChessRow).repeat(halfChessBoxSize); 
+
+    if (n % 2 == 1) {
+        chessBoard += chessRow;
+    }
     return chessBoard;
 }
